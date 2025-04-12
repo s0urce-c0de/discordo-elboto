@@ -1,5 +1,7 @@
-import discord
+import discord, os
 from discord.ext import commands
+from dotenv import load_dotenv
+load_dotenv()
 
 intents = discord.Intents.all()
 intents.members = True
@@ -18,4 +20,4 @@ async def on_ready():
 #  await member.edit(nick=nick)
 #  await ctx.send(f'Nickname was changed for {member.mention}', silent=True)
 
-bot.run('BOT_TOKEN')
+bot.run(os.environ.get('DISCORD_BOT_TOKEN'))
